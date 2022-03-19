@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace InvoiceGenerator.InvoiceData
 {
     public class Seller
     {
-        public int SellerID { get; set; }
+        [Key]
+        public int SellerId { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
         public string PostalCode { get; set; }
