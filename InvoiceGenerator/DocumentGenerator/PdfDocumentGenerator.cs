@@ -5,7 +5,7 @@ namespace InvoiceGenerator.DocumentGenerator
     internal class PdfDocumentGenerator
     {
 
-        public void GetPdf(Buyer buyer, Seller seller, InvoiceDetails invoiceDetails, string path)
+        public void GetPdf(Buyer buyer, Seller seller, Invoice invoice, string path)
         {
 
         }

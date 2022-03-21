@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using InvoiceGenerator.Infrastructure.Repository.BuyerRepository;
+using InvoiceGenerator.Infrastructure.Repository.SellerRepository;
+using InvoiceGenerator.InvoiceData;
 
 namespace InvoiceGenerator
 {
@@ -19,9 +13,38 @@ namespace InvoiceGenerator
     /// </summary>
     public partial class CreateInvocieFromList : Window
     {
-        public CreateInvocieFromList()
+        private readonly IBuyerRepository _buyerRepository;
+        private readonly ISellerRepository _sellerRepository;
+
+        public IEnumerable<Buyer> ComboBoxBuyerList { get; set; }
+        public IEnumerable<Seller> ComboBoxSellerList { get; set; }
+
+
+        public CreateInvocieFromList(IBuyerRepository buyerRepository, ISellerRepository sellerRepository)
         {
             InitializeComponent();
+
+            _buyerRepository = buyerRepository ?? throw new ArgumentNullException(nameof(buyerRepository));
+            _sellerRepository = sellerRepository ?? throw new ArgumentNullException(nameof(sellerRepository));
+
+            LoadComboBoxData();
+            DataContext = this;
+        }
+
+        private async void LoadComboBoxData()
+        {
+            ComboBoxBuyerList = await _buyerRepository.GetBuyerNameList();
+            ComboBoxSellerList = await _sellerRepository.GetSellerNameList();
+        }
+
+        private void btnMoveOn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

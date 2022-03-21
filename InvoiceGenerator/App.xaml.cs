@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
 using System.Windows;
+using InvoiceGenerator.Infrastructure.Repository.InvoiceDetailsRepository;
+using InvoiceGenerator.Infrastructure.Repository.SellerRepository;
 
 namespace InvoiceGenerator
 {
@@ -37,11 +39,12 @@ namespace InvoiceGenerator
 
         private void ConfigureServices(IServiceCollection services)
         {
-            // ...
             services.AddDbContext<InvocieContex>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("InvoiceDataBase")));
             services.AddTransient(typeof(MainWindow));
             services.AddTransient<IBuyerRepository, BuyerRepository>();
+            services.AddTransient<ISellerRepository, SellerRepository>();
+            services.AddTransient<IInvoiceDetailsRepository, InvoiceDetailsRepository>();
 
         }
     }
