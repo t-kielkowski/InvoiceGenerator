@@ -17,12 +17,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Btn_AddInvoiceFromList" Grid.Column="0" Grid.Row="0" Content="Generuj fakture" Width="200" Height="50" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Cascadia Code" BorderBrush="#FFFF5D5D" Background="#FFC7C7C7" Click="ButtonAddFromList">
+            <Button x:Name="btnAddInvoiceFromList" Grid.Column="0" Grid.Row="0" Content="Generuj fakture" Width="200" Height="50" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Cascadia Code" BorderBrush="#FFFF5D5D" Background="#FFC7C7C7" Click="btnAddInvoiceFromList_Click" >
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="Btn_AddInvoiceManual" Grid.Column="1" Grid.Row="0" Content="Dodaj ręcznie i generuj fakture" Width="200" Height="50">
+            <Button x:Name="btnAddInvoiceManual" Grid.Column="1" Grid.Row="0" Content="Dodaj ręcznie i generuj fakture" Width="200" Height="50" Click="btnAddInvoiceManual_Click">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
@@ -32,21 +32,22 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="240*"/>
+                <ColumnDefinition Width="47*"/>
+                <ColumnDefinition Width="287*"/>
+                <ColumnDefinition Width="287*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Dodaj" Width="125" Height="50" Cursor="Hand">
-          <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Grid.Column="1" Content="Usuń" Width="125" Height="50" Cursor="Hand">
+            <Button x:Name="btnAddTradingPartner" Grid.Column="0" Content="Dodaj" Width="125" Height="50" Cursor="Hand" Margin="81,65,34,65" Click="btnAddTradingPartner_Click">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button Grid.Column="2" Content="Przejrzyj liste" Width="125" Height="50" Cursor="Hand">
+            <Button x:Name="btnRemoveTradingPartner" Grid.Column="2" Content="Usuń" Width="125" Height="50" Cursor="Hand" Margin="81,65,80,65">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="btnShowList" Grid.Column="3" Content="Przejrzyj liste" Width="125" Height="50" Cursor="Hand" Margin="81,65,81,65">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>

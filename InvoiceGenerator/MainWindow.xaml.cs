@@ -32,12 +32,24 @@ namespace InvoiceGenerator
             this.Height = HeightWindowAfterScaling;
             this.Width = WidthWindowAfterScaling;
         }
-
-        private void ButtonAddFromList(object sender, RoutedEventArgs e)
+        private void btnAddInvoiceFromList_Click(object sender, RoutedEventArgs e)
         {
             var windows = new CreateInvocieFromList(_buyerRepository, _sellerRepository);
             windows.ShowDialog();
-
         }
+
+        private void btnAddInvoiceManual_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnAddTradingPartner_Click(object sender, RoutedEventArgs e)
+        {
+            var windows = new AddTradingPartner(_buyerRepository, _sellerRepository);
+            windows.ShowDialog();
+        }
+
+        
     }
+
 }
