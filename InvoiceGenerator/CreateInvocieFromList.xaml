@@ -22,7 +22,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0"  Text="Wybierz wystawce faktury" HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Width="150"/>
-            <ComboBox x:Name="ComBoxListOfBuyers" Grid.Row="1" Grid.Column="0" Width="100" Height="25" ItemsSource="{Binding ElementName = ComBoxListOfBuyers}"/>
+            <ComboBox x:Name="ComBoxListOfBuyers" Grid.Row="1" Grid.Column="0" Width="100" Height="25" SelectionChanged="ComBoxListOfBuyers_SelectionChanged" ItemsSource="{Binding ComboBoxBuyerList}"/>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
@@ -30,10 +30,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0"   HorizontalAlignment="Center"  Text="Wybierz odbiorcę faktury" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-            <ComboBox x:Name="ComBoxListOfSellers" Grid.Row="1" Grid.Column="0" Width="100" Height="25" ItemsSource="{Binding ElementName = ComBoxListOfSellers}"/>
+            <ComboBox x:Name="ComBoxListOfSellers" Grid.Row="1" Grid.Column="0" Width="100" Height="25" ItemsSource="{Binding ElementName = ComBoxListOfSellers}" SelectionChanged="ComBoxListOfSellers_SelectionChanged"/>
         </Grid>
-        <TextBlock Name ="FromDB"  Grid.Row="1" Grid.Column="0" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+        <TextBlock x:Name ="txtBlockBuyerData" Grid.Column="0" Text="TextBlock" TextWrapping="Wrap" Margin="0,117,0,2" Grid.RowSpan="2" />
+        <TextBlock x:Name="txtBlockSellerData" Grid.Row="1" Grid.Column="1" Text="TextBlock" TextWrapping="Wrap" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
 
         <Button x:Name="btnMoveOn" Grid.Row="2" Grid.Column="0" Content="Przejdź do formularza" Width="150" Height="30" Click="btnMoveOn_Click" />
         <Button x:Name="btnClose" Grid.Row="2" Grid.Column="1" Content="Powrót" Width="150" Height="30" Margin="87,12,88,17" Click="btnClose_Click" />
