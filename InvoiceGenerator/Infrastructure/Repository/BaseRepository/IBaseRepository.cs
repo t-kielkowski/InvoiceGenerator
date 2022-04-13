@@ -13,7 +13,7 @@ namespace InvoiceGenerator.Infrastructure.Repository.BaseRepository
 
         Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
 
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        List<TEntity> GetAllAsync();
 
         Task<TEntity> CreateAsync(TEntity entity);
 

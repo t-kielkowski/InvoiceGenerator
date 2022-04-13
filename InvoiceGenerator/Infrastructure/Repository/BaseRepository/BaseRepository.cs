@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace InvoiceGenerator.Infrastructure.Repository.BaseRepository
 {
@@ -29,26 +30,18 @@ namespace InvoiceGenerator.Infrastructure.Repository.BaseRepository
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TEntity>> GetAllAsync()
+        public List<TEntity> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var query =  DbContext.Set<TEntity>().ToList();
+                
+            return query;
         }
 
         public virtual async Task<TEntity> CreateAsync(TEntity entity)
         {
-            try
-            {
-                var dbEntity = await DbContext.Set<TEntity>().AddAsync(entity);
+                await DbContext.Set<TEntity>().AddAsync(entity);
                 await DbContext.SaveChangesAsync();
-                return dbEntity.Entity;
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-          
+                return entity;
         }
 
         public Task UpdateAsync(int id, TEntity entity)
