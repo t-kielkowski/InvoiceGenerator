@@ -7,6 +7,6 @@ namespace InvoiceGenerator.Infrastructure.Repository.BuyerRepository
 {
     public interface IBuyerRepository : IBaseRepository<Buyer>
     {
-        Task <ICollection<Buyer>> GetBuyerNameList();
+
     }
 }
